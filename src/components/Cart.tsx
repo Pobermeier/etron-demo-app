@@ -36,8 +36,12 @@ const Cart: React.FC<CartProps> = ({ cart, deleteItem }) => {
                 </tr>
               ))}
               <tr>
-                <th className="bg-primary"></th>
-                <th className="bg-primary"></th>
+                <th className="bg-primary">Totals</th>
+                <th className="bg-primary">
+                  {cart
+                    .reduce((acc, item) => acc + +item.unitPrice, 0)
+                    .toFixed(2)}
+                </th>
                 <th className="bg-primary">
                   {cart.reduce((acc, item) => acc + +item.quantity, 0)}
                 </th>
