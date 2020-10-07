@@ -1,9 +1,13 @@
 import React from 'react';
+import Navbar from './components/Navbar';
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <div>
-      <h1>App</h1>
+      <Navbar />
+      <main className="container mt-5">
+        <h1>App</h1>
+      </main>
     </div>
   );
 };
