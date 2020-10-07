@@ -12,8 +12,8 @@ const Cart: React.FC<CartProps> = ({ cart, deleteItem }) => {
             <thead className="thead-dark">
               <tr>
                 <th scope="col">Name</th>
-                <th scope="col">Quantity</th>
                 <th scope="col">Unit Price</th>
+                <th scope="col">Quantity</th>
                 <th scope="col">Total Price</th>
                 <th scope="col">Actions</th>
               </tr>
@@ -22,8 +22,8 @@ const Cart: React.FC<CartProps> = ({ cart, deleteItem }) => {
               {cart.map((item) => (
                 <tr key={item.name}>
                   <td>{item.name}</td>
-                  <td>{item.quantity}</td>
                   <td>{item.unitPrice.toFixed(2)}</td>
+                  <td>{item.quantity}</td>
                   <td>{item.totalPrice.toFixed(2)}</td>
                   <td>
                     <button
@@ -37,10 +37,10 @@ const Cart: React.FC<CartProps> = ({ cart, deleteItem }) => {
               ))}
               <tr>
                 <th className="bg-primary"></th>
+                <th className="bg-primary"></th>
                 <th className="bg-primary">
                   {cart.reduce((acc, item) => acc + +item.quantity, 0)}
                 </th>
-                <th className="bg-primary"></th>
                 <th className="bg-primary">
                   {cart
                     .reduce((acc, item) => acc + +item.totalPrice, 0)
