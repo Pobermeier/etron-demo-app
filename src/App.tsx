@@ -15,6 +15,7 @@ const App: React.FC<{ initial?: Array<CardItem> }> = ({ initial = [] }) => {
 
     if (found) {
       found.quantity = +found.quantity + 1;
+      found.unitPrice = price;
       found.totalPrice = +found.quantity * +found.unitPrice;
 
       setCart((prevCart) =>
