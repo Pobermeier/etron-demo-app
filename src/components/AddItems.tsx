@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Product from '../models/Product';
 
-const AddItems: React.FC<AddItemsProps> = ({ addItem, initial = [] }) => {
-  const [products, setProducts] = useState(initial);
+const AddItems: React.FC<AddItemsProps> = ({ addItem }) => {
+  const [products, setProducts] = useState<Array<Product>>([]);
 
   const addProduct = (text: string) => {
     let arr = text.trim().split(', ');
@@ -72,7 +72,6 @@ const AddItems: React.FC<AddItemsProps> = ({ addItem, initial = [] }) => {
 
 interface AddItemsProps {
   addItem: (product: Product) => void;
-  initial?: Product[];
 }
 
 export default AddItems;

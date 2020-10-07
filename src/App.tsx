@@ -5,13 +5,13 @@ import AddItems from './components/AddItems';
 import Product from './models/Product';
 import CardItem from './models/CartItem';
 
-const App: React.FC<{ initial?: Array<CardItem> }> = ({ initial = [] }) => {
-  const [cart, setCart] = useState(initial);
+const App: React.FC = () => {
+  const [cart, setCart] = useState<Array<CardItem>>([]);
 
   const addItem = (product: Product) => {
     const { name, price } = product;
 
-    const found: any = cart.find((item: CardItem) => item.name === name);
+    const found = cart.find((item) => item.name === name);
 
     if (found) {
       found.quantity = +found.quantity + 1;
@@ -22,7 +22,7 @@ const App: React.FC<{ initial?: Array<CardItem> }> = ({ initial = [] }) => {
         prevCart.map((item) => (item.name === found.name ? found : item)),
       );
     } else {
-      const newItem: CardItem = {
+      const newItem = {
         name,
         unitPrice: price,
         totalPrice: price,
