@@ -35,6 +35,10 @@ const AddItems: React.FC<AddItemsProps> = ({ addItem, initial = [] }) => {
   return (
     <div>
       <h2>Add Items To Cart</h2>
+      <p>
+        Add items to the text area below as a comma-separated list (e.g. "apple,
+        4, banana, 6.2, strawberry, 2"):
+      </p>
       <br />
       <form action="POST" onSubmit={(e) => e.preventDefault()}>
         <div className="form-group">
