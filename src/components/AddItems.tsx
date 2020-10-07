@@ -1,19 +1,36 @@
 import React, { useState } from 'react';
 import Product from '../models/Product';
 
-const AddItems: React.FC<AddItemsProps> = ({ addItem }) => {
-  const [products, setProducts] = useState([
-    { name: 'apple', price: 4 },
-    { name: 'banana', price: 6.2 },
-    { name: 'strawberry', price: 2 },
-    { name: 'banana', price: 6.2 },
-    { name: 'banana', price: 6.2 },
-    { name: 'banana', price: 6.2 },
-    { name: 'banana', price: 6.2 },
-    { name: 'banana', price: 6.2 },
-    { name: 'banana', price: 6.2 },
-    { name: 'banana', price: 6.2 },
-  ]);
+const AddItems: React.FC<AddItemsProps> = ({ addItem, initial = [] }) => {
+  const [products, setProducts] = useState(initial);
+
+  const addProduct = (text: string) => {
+    let arr = text.trim().split(', ');
+    arr = arr.map((string) => string.trim().replace(',', ''));
+
+    if (arr.length <= 1) {
+      setProducts([]);
+    }
+
+    if (arr.length % 2 === 0) {
+      const products: any = arr
+        .map((item, index, arr) => {
+          if ((index + 1) % 2 === 0) {
+            const product = {
+              name: arr[index - 1],
+              price: parseFloat(item),
+            };
+
+            return product;
+          } else {
+            return null;
+          }
+        })
+        .filter((v) => v !== null);
+
+      setProducts(products);
+    }
+  };
 
   return (
     <div>
@@ -26,6 +43,7 @@ const AddItems: React.FC<AddItemsProps> = ({ addItem }) => {
             cols={30}
             rows={5}
             className="form-control"
+            onChange={(e) => addProduct(e.target.value)}
           ></textarea>
         </div>
       </form>
@@ -50,6 +68,7 @@ const AddItems: React.FC<AddItemsProps> = ({ addItem }) => {
 
 interface AddItemsProps {
   addItem: (product: Product) => void;
+  initial?: Product[];
 }
 
 export default AddItems;
