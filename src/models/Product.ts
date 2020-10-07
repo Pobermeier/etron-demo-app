@@ -1,5 +1,5 @@
 interface Product {
-  name: String;
+  name: string;
   price: Number;
 }
 
