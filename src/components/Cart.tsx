@@ -39,15 +39,15 @@ const Cart: React.FC<Props> = ({ cart, deleteItem }) => {
                 <th className="bg-primary">Totals</th>
                 <th className="bg-primary">
                   {cart
-                    .reduce((acc, item) => acc + +item.unitPrice, 0)
+                    .reduce((acc, item) => acc + item.unitPrice, 0)
                     .toFixed(2)}
                 </th>
                 <th className="bg-primary">
-                  {cart.reduce((acc, item) => acc + +item.quantity, 0)}
+                  {cart.reduce((acc, item) => acc + item.quantity, 0)}
                 </th>
                 <th className="bg-primary">
                   {cart
-                    .reduce((acc, item) => acc + +item.totalPrice, 0)
+                    .reduce((acc, item) => acc + item.totalPrice, 0)
                     .toFixed(2)}
                 </th>
                 <th className="bg-primary"></th>
@@ -64,7 +64,7 @@ const Cart: React.FC<Props> = ({ cart, deleteItem }) => {
 
 interface Props {
   deleteItem: (id: String) => void;
-  cart: Array<CardItem>;
+  cart: CardItem[];
 }
 
 export default Cart;

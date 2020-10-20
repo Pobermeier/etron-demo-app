@@ -14,9 +14,9 @@ const App: React.FC = () => {
     const found = cart.find((item) => item.name === name);
 
     if (found) {
-      found.quantity = +found.quantity + 1;
+      found.quantity += 1;
       found.unitPrice = price;
-      found.totalPrice = +found.quantity * +found.unitPrice;
+      found.totalPrice = found.quantity * found.unitPrice;
 
       setCart((prevCart) =>
         prevCart.map((item) => (item.name === found.name ? found : item)),
