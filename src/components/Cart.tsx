@@ -56,7 +56,7 @@ const Cart: React.FC<CartProps> = ({ cart, deleteItem }) => {
           </table>
         </div>
       ) : (
-        <h5 className="text-center pt-5">No items in card yet</h5>
+        <h5 className="text-center pt-5">No items in cart yet</h5>
       )}
     </div>
   );

@@ -6,7 +6,7 @@ import Product from './models/Product';
 import CardItem from './models/CartItem';
 
 const App: React.FC = () => {
-  const [cart, setCart] = useState<Array<CardItem>>([]);
+  const [cart, setCart] = useState<CardItem[]>([]);
 
   const addItem = (product: Product) => {
     const { name, price } = product;
