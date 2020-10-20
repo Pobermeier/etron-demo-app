@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Product from '../models/Product';
 
 const AddItems: React.FC<Props> = ({ addItem }) => {
-  const [products, setProducts] = useState<Array<Product>>([]);
+  const [products, setProducts] = useState<(Product | null)[]>([]);
 
   const addProduct = (text: string) => {
     let arr = text.trim().split(', ');
@@ -13,7 +13,7 @@ const AddItems: React.FC<Props> = ({ addItem }) => {
     }
 
     if (arr.length % 2 === 0) {
-      const products: any = arr
+      const products = arr
         .map((item, index, arr) => {
           if ((index + 1) % 2 === 0) {
             const product = {
@@ -21,10 +21,8 @@ const AddItems: React.FC<Props> = ({ addItem }) => {
               price: parseFloat(item),
             };
 
-            return product;
-          } else {
-            return null;
-          }
+            return product as Product;
+          } else return null;
         })
         .filter((v) => v !== null);
 
@@ -58,7 +56,7 @@ const AddItems: React.FC<Props> = ({ addItem }) => {
             <button
               className="btn btn-primary"
               onClick={() =>
-                addItem({ name: product.name, price: product.price })
+                addItem({ name: product!.name, price: product!.price })
               }
             >
               {product!.name} ({product!.price.toFixed(2)})
