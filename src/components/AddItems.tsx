@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Product from '../models/Product';
 
-const AddItems: React.FC<AddItemsProps> = ({ addItem }) => {
+const AddItems: React.FC<Props> = ({ addItem }) => {
   const [products, setProducts] = useState<Array<Product>>([]);
 
   const addProduct = (text: string) => {
@@ -70,7 +70,7 @@ const AddItems: React.FC<AddItemsProps> = ({ addItem }) => {
   );
 };
 
-interface AddItemsProps {
+interface Props {
   addItem: (product: Product) => void;
 }
 

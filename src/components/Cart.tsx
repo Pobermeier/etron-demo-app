@@ -1,7 +1,7 @@
 import React from 'react';
 import CardItem from '../models/CartItem';
 
-const Cart: React.FC<CartProps> = ({ cart, deleteItem }) => {
+const Cart: React.FC<Props> = ({ cart, deleteItem }) => {
   return (
     <div>
       <h2>Shopping Cart</h2>
@@ -62,7 +62,7 @@ const Cart: React.FC<CartProps> = ({ cart, deleteItem }) => {
   );
 };
 
-interface CartProps {
+interface Props {
   deleteItem: (id: String) => void;
   cart: Array<CardItem>;
 }
