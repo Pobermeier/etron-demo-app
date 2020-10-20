@@ -1,8 +1,8 @@
 interface CartItem {
   name: string;
-  unitPrice: Number;
-  quantity: Number;
-  totalPrice: Number;
+  unitPrice: number;
+  quantity: number;
+  totalPrice: number;
 }
 
 export default CartItem;

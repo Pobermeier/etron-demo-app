@@ -1,6 +1,6 @@
 interface Product {
   name: string;
-  price: Number;
+  price: number;
 }
 
 export default Product;
