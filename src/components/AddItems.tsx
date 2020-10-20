@@ -61,7 +61,7 @@ const AddItems: React.FC<Props> = ({ addItem }) => {
                 addItem({ name: product.name, price: product.price })
               }
             >
-              {product.name} ({product.price.toFixed(2)})
+              {product!.name} ({product!.price.toFixed(2)})
             </button>
           </div>
         ))}
